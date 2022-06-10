@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="historicoPiso.css">
+    <link rel="stylesheet" href="css/historicoPiso.css">
     <link rel="stylesheet" href="../CadastramentoDeVagas/CSS/Modal.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="Model/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="Model/modal.css">
     <script src="Model/Model.js" defer></script>
+    <script src="js/apiTipoVeiculo.js" defer></script>
     <link rel="shortcut icon" href="../menulateral/img/logoFast.png" type="image/x-icon">
     <title>Tipo de Veiculo</title>
 </head>
@@ -62,54 +63,44 @@
                     
                    
                     <tr id="tblLinhas">
-                        <td class="tblColunas destaque"> Carro </td>                   
+                        <!-- <td class="tblColunas destaque"> Carro </td>                   
                             <td class="tblColunas registros">
                             <img src="img/editar.png"  class="editar">
                             <img src="img/Vector.png"  class="editar">
                     
-                    </td>
+                    </td> -->
                     </tr>
 
-                    <tr id="tblLinhas">
-                        <td class="tblColunas destaque"> Moto </td>                   
-                            <td class="tblColunas registros">
-                            <img src="img/editar.png"  class="editar">
-                            <img src="img/Vector.png"  class="editar">
-                    
-                    </td>
-                    </tr>
+                    <tr id="tblLinhas"></tr>
 
-                    <tr id="tblLinhas">
-                        <td class="tblColunas destaque"> Caminhão </td>                   
-                            <td class="tblColunas registros">
-                            <img src="img/editar.png"  class="editar">
-                            <img src="img/Vector.png"  class="editar">
-                    
-                    </td>
-                    </tr>
+                    <tr id="tblLinhas"></tr>
                
                
             </section>
         </div>
 
         <div class="modal-conteiner" id="modal-conteiner">
-        
-            <div class="modal-content">
-                <header>
-                    <h1 id="txt-novo-status">Novo Veiculo</h1>
-                </header>
-                <div id="fecharmodel">
-                    <img id="imgfecharmodal" src="../CadastramentoDeVagas/FaviconsCadastramento/fechar.png" alt="">
-                </div>
 
-    
-                <div id="selecao">
-                    <h2 id="txt-nome">Nome:</h2>
-                    <input type="search" id="search">
+            <div class="conteudotodo">
+                    
+                   <div class="topModal">
+                       <div>
+                        <h1>Novo status</h1>
+                        <span id="imgFechar">
+                            <img src="img/X.png" alt="">
+                        </span> 
+                    </div>
                 </div>
-            <input type="submit" value="Adicionar" id="model-submit-editar">
+                
+                  <div class="NomeStatus">
+                     <form action="">
+                        <h2>Nome:</h2>
+                        <input type="text">
+                        <input type="submit" value="Adicionar">
+                     </form>
+                  </div>
+
             </div>
-    
         </div>
 
 

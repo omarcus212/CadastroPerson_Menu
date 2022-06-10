@@ -1,0 +1,114 @@
+#modal-conteiner{
+width: 100%;
+height: 100%;
+background-color: rgba(240, 240, 240, 0.733);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.conteudotodo{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffff;
+    padding: 10px;
+  
+  
+}
+
+.conteudotodo .topModal{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+   
+}
+
+#imgFechar{
+cursor: pointer;
+}
+
+.topModal div{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+    
+}
+
+.topModal span h1{
+    display: flex;
+    width: 80%;
+   
+}
+
+.topModal{
+    width: 100%;
+    height: 10%;
+}
+
+
+.conteudotodo .NomeStatus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    
+}    
+
+.NomeStatus form{
+    width: 10%;
+    height: 0px;
+    
+}
+
+
+.NomeStatus :nth-child(2){
+    width: 60%;
+    
+}
+
+.NomeStatus :nth-child(3){
+    width: 60%;
+    border: none;
+    background-color: #F3F3F3;
+    margin-bottom: 10px;
+    
+}
+
+.NomeStatus :nth-child(4){
+    width: 100px;
+    height: 50px;
+    border: solid 1px #000;
+    background-color: transparent;
+    cursor: pointer;
+    
+    
+}
+
+
+
+@media(max-width:900px){
+
+    .conteudotodo h1,h2{
+        font-size: 1rem;
+    }
+
+    .NomeStatus :nth-child(4){
+        width: auto;
+        height: auto;
+        
+        
+        
+    }
+        
+}

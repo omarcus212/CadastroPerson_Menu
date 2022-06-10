@@ -136,22 +136,19 @@ const modelo_Veiculos = async(idMarcaCarro) =>{
  const valuesDados = async () =>{
    const nome = document.getElementById('NomeCliente').value;
    const telefone = document.getElementById('telefoneCliente').value;
-   const fab = document.getElementById('lista-marca').value;
+   const fab = document.getElementById('lista-marca');
+   const opcaoTexto = fab.options[fab.selectedIndex].text;
    const placa = document.getElementById('placa').value;
-   const tipo = document.getElementById('tipoVeiculo').value;
+   const tipo = document.getElementById('tipoVeiculo');
+   const tipoVeiculo = tipo.options[tipo.selectedIndex].text;
    const cor = document.getElementById('CorVeiculo').value;
-   const modelo = document.getElementById('lista-modelos').value;
-   const fabricante =  await marca_Carro();
-   const Modelo = await modelo_Veiculos(fab);
-   console.log(nome+telefone+fab+placa+tipo+cor+modelo+modelo+fabricante[8].nome);
-
-
-
-
+   const modelos = document.getElementById('lista-modelos');
+   const modelVeiculo = modelos.options[modelos.selectedIndex].text;
 
 
    abrirmodal();
  }
+ /*informações de dados feitos*/
 
 
 

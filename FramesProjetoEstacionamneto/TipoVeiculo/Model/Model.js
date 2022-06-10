@@ -10,4 +10,4 @@ const fecharModal = () =>{
 
 document.getElementById('submit-adicionar').addEventListener('click' , abrirModal)
 
-document.getElementById('imgfecharmodal').addEventListener('click' , fecharModal)
+document.getElementById('imgFechar').addEventListener('click' , fecharModal)

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/historicoPiso.css">
     <link rel="stylesheet" href="../CadastramentoDeVagas/CSS/Modal.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/modal.css">
     <link rel="shortcut icon" href="../menulateral/img/logoFast.png" type="image/x-icon">
     <script src="js/apiCor.js" defer></script>
     <script src="js/Model.js" defer></script>
@@ -96,25 +96,29 @@
         </div>
 
         <div class="modal-conteiner" id="modal-conteiner">
-        
-            <div class="modal-content">
-                <header id="topomodal">
-                    <h1 id="txt-novo-status">Nova cor</h1>
-                    <div id="fecharmodel">
-                        <img id="imgfecharmodal" src="img/X.png" alt="">
-                    </div>
-                </header>
-              
 
-    
-                <div id="selecao">
-                    <h2 id="txt-nome">Nome:</h2>
-                    <input type="search" id="search">
+            <div class="conteudotodo">
+                    
+                   <div class="topModal">
+                       <div>
+                        <h1>Novo status</h1>
+                        <span id="imgFechar">
+                            <img src="img/X.png" alt="">
+                        </span> 
+                    </div>
                 </div>
-            <input type="submit" value="Adicionar" id="model-submit-editar">
+                
+                  <div class="NomeStatus">
+                     <form action="">
+                        <h2>Nome:</h2>
+                        <input type="text">
+                        <input type="submit" value="Adicionar">
+                     </form>
+                  </div>
+
             </div>
-    
         </div>
+
 
 
 
