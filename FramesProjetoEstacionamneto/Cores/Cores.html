@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="historicoPiso.css">
+    <link rel="stylesheet" href="css/historicoPiso.css">
     <link rel="stylesheet" href="../CadastramentoDeVagas/CSS/Modal.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="Model/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/core.css">
     <link rel="shortcut icon" href="../menulateral/img/logoFast.png" type="image/x-icon">
-    <script src="Model/Model.js" defer></script>
+    <script src="js/apiCor.js" defer></script>
+    <script src="js/Model.js" defer></script>
     <title>Cores</title>
 </head>
 <body>
@@ -57,7 +58,7 @@
              
                 <table id="tblConsulta" >
         
-                    <tr id="tblLinhas">
+                    <!-- <tr id="tblLinhas">
                         <td class="tblColunas destaque"> <h3>Cores</h3>  </td>
                         <td class="tblColunas registros"> <h3>Ações</h3> </td>
                     </tr>
@@ -79,9 +80,9 @@
                             <img src="img/Vector.png"  class="editar">
                     
                     </td>
-                    </tr>
+                    </tr> -->
 
-                    <tr id="tblLinhas">
+                    <!-- <tr id="tblLinhas">
                         <td class="tblColunas destaque"> Azul </td>                   
                             <td class="tblColunas registros">
                             <img src="img/editar.png"  class="editar">
@@ -89,7 +90,7 @@
                     
                     </td>
                     </tr>
-               
+                -->
                
             </section>
         </div>
@@ -97,12 +98,13 @@
         <div class="modal-conteiner" id="modal-conteiner">
         
             <div class="modal-content">
-                <header>
+                <header id="topomodal">
                     <h1 id="txt-novo-status">Nova cor</h1>
+                    <div id="fecharmodel">
+                        <img id="imgfecharmodal" src="img/X.png" alt="">
+                    </div>
                 </header>
-                <div id="fecharmodel">
-                    <img id="imgfecharmodal" src="../CadastramentoDeVagas/FaviconsCadastramento/fechar.png" alt="">
-                </div>
+              
 
     
                 <div id="selecao">
