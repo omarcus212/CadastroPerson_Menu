@@ -8,6 +8,11 @@ const fecharModal = () =>{
     document.getElementById('modal-conteiner').classList.remove('active')
 }
 
+
+export{
+    abrirModal
+}
+
 document.getElementById('submit-adicionar').addEventListener('click' , abrirModal)
 
 document.getElementById('imgFechar').addEventListener('click' , fecharModal)

@@ -1,5 +1,8 @@
 'use strict'
 
+import { abrirModal } from "./Model.js";
+
+const alert200 =" foi Adicionado com sucesso"
 
 const dados =[  
     {
@@ -42,7 +45,7 @@ let apoio =`<td class="tblColunas destaque"> <h3>Cores</h3>  </td>
                         <td class="tblColunas destaque"> ${item.cor}</td>                   
                             <td class="tblColunas registros">
                             <img src="img/editar.png"  class="editar">
-                            <img src="img/Vector.png"  class="editar">
+                            <img src="img/Vector.png"  class="excluir">
                     
                     </td>
                     </tr>
@@ -54,3 +57,28 @@ let apoio =`<td class="tblColunas destaque"> <h3>Cores</h3>  </td>
 
 }
 criarTabela();
+
+
+
+const enviarDados = () =>{
+   const  x = document.getElementById('textNome').value;
+
+   alert(x + alert200);
+
+    return x;
+
+}
+
+const editarDados = () =>{
+abrirModal();
+
+
+  
+
+
+}
+
+
+document.querySelector('.editar').addEventListener('click' , editarDados)
+document.getElementById('add').addEventListener('click', enviarDados);
+
