@@ -1,4 +1,6 @@
-'use strich'
+'use strict'
+
+ import {abrirmodal} from "../js/efectmodal.js";
 
 const marca_Carro = async () =>{
 
@@ -130,62 +132,30 @@ const modelo_Veiculos = async(idMarcaCarro) =>{
 
  }
  
-//  const valuesDados = () =>{
+
+ const valuesDados = async () =>{
+   const nome = document.getElementById('NomeCliente').value;
+   const telefone = document.getElementById('telefoneCliente').value;
+   const fab = document.getElementById('lista-marca').value;
+   const placa = document.getElementById('placa').value;
+   const tipo = document.getElementById('tipoVeiculo').value;
+   const cor = document.getElementById('CorVeiculo').value;
+   const modelo = document.getElementById('lista-modelos').value;
+   const fabricante =  await marca_Carro();
+   const Modelo = await modelo_Veiculos(fab);
+   console.log(nome+telefone+fab+placa+tipo+cor+modelo+modelo+fabricante[8].nome);
 
 
 
-//  }
-
-
-const criarEntradacheck = (dados) =>{
-
-   const cardCheck = document.createElement('div');
-   cardCheck.classList.add('.content');
-
-   cardCheck.innerHTML = `
-   
-   <h1>Fast parking</h1>
-                                 
-   <p>Nome: ${dados.nome}</p>
-  
-    <p>Placa:${dados.placa} </p> 
-     
-    <span>
-       <p>Fabricante : ${dados.Fab} </p>
-
-       
-       <p>Tipo: </p>
-      
-       <p>Modelo:  </p> 
-
-       <p>Cor : </p> 
-
-       
-       
-       
-    </span>
-    
-  
-   <div class="vagamodal_entrada">
-       <h2>VAGA:</h2>
-       <p>Piso: 1
-           Setor: B
-           Corredor: C
-           Número: 32
-       </p>
-   </div>
-   <p id="Entrada_model">Entrada - 19/15/2022 - 12:30:20
-   </p>
-   
-   `;
 
 
 
-}
+   abrirmodal();
+ }
 
-// document.getElementById('lista-marca').addEventListener('click', valuesDados);
 
 
+document.getElementById('cadastra').addEventListener('click', valuesDados);
 document.getElementById('lista-marca').addEventListener('change', criarlist_Modelo);
 
 

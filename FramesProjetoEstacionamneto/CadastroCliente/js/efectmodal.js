@@ -1,11 +1,10 @@
-
+'use strict'
 
 
 const abrirmodal = () =>{
 
    document.getElementById('containerModel_entrada').classList.add('active');
-
-
+     
 }
 
 
@@ -15,9 +14,12 @@ const fecharmodal = () =>{
  
  
  }
+
+ fecharmodal(); 
  
 
+export{
+   abrirmodal
+};
 
-
- document.getElementById('cadatra').addEventListener('click', abrirmodal);
 document.getElementById('imgmodel').addEventListener('click', fecharmodal);

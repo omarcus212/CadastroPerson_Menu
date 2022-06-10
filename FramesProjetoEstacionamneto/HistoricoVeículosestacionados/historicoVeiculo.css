@@ -3,7 +3,8 @@ main{
 }
 
 #conteudo{
-padding: 30px ;
+    width: 100%;
+    padding: 30px ;
 }
 
 .title_and_button{
@@ -162,7 +163,9 @@ margin-bottom: 60px;
     font-weight: bold;
 }
 
-
+.registros{
+    padding: 0px;
+}
 
 @media(max-width:950px) {
      
@@ -209,3 +212,30 @@ margin-bottom: 60px;
     }
 
 }
+
+
+
+@media(max-width:300px){
+    .title_and_button{
+        display: flex;
+        width: 100%;
+        justify-content:start;
+        flex-wrap: wrap;
+      
+     }
+
+     .title_and_button h1{
+         
+         font-size: 1rem;
+     }
+     .title_and_button span{
+        display: flex;
+        width:auto;
+        justify-content:center;
+        flex-wrap: wrap;
+      
+     }
+
+}
+
+

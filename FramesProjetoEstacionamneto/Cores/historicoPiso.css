@@ -4,7 +4,9 @@ main{
 }
 
 #conteudo{
+width: 100%;
 padding: 30px ;
+
 }
 
 .title_and_button{
@@ -133,7 +135,7 @@ margin-bottom: 60px;
 }
 
 .registros{
-   padding-left: 100px;
+   padding-left: 50px;
 }
 
 
@@ -142,9 +144,12 @@ margin-bottom: 60px;
 @media(max-width:950px) {
      
     .title_and_button{
+        display: flex;
        width: 100%;
        justify-content:start;
        gap: 20px;
+       flex-wrap: wrap;
+     
     }
 
     .title_and_button h1{
@@ -156,7 +161,9 @@ margin-bottom: 60px;
 
     .title_and_button  span{
         display: flex;
-        width: 50%;
+        width: 30%;
+        font-size: 1rem;
+        margin-left: 10px;
     }
 
     .filtro_barra{
@@ -182,6 +189,9 @@ margin-bottom: 60px;
     .pesquisaVeiculo img{
         display: none;
     }
-
+    
+    .registros{
+        padding: 10px;
+    }
 }
 

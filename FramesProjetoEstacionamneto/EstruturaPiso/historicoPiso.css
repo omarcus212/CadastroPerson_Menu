@@ -4,7 +4,9 @@ main{
 }
 
 #conteudo{
+width: 100%;
 padding: 30px ;
+
 }
 
 .title_and_button{
@@ -181,5 +183,20 @@ margin-bottom: 60px;
         display: none;
     }
 
+    .registros{
+        padding: 4px;
+    }
+
 }
 
+@media(max-width:500px){
+    .registros{
+        width: 90px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10;
+        
+    }
+}

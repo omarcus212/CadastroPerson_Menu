@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../menulateral/cssMenu/menuLateral.css">
     <link rel="stylesheet" href="cssCadatroCliente/modelEntrada.css">
     <link rel="shortcut icon" href="../menulateral/img/logoFast.png" type="image/x-icon">
-    <script src="js/efectmodal.js" defer></script>
-    <script src="js/marcaApi.js" defer></script>
+    <script src="js/efectmodal.js" defer type="module"></script>
+    <script src="js/marcaApi.js" defer type="module"></script>
     
     <title>Cadastramento Cliente</title>
 </head>
@@ -44,8 +44,8 @@
                 <form action="inserir" id="dadosCliente">
 
                  <div class="dadosCliente">
-                    <span> <h3>Nome: </h3><input type="text"></span>
-                    <span><h3>Telefone:</h3><input type="text" class="tel"></span>
+                    <span> <h3>Nome: </h3><input type="text" id="NomeCliente" value=""></span>
+                    <span><h3>Telefone:</h3><input type="number" class="tel" id="telefoneCliente" value=""></span>
                  </div>
 
                  <h1>Cadastro Veiculo</h1>
@@ -53,7 +53,7 @@
                  <div class="dadosVeiculo">
 
                      <div class="tpl_modelo">
-                        <span><h4>Placa:</h4>  <input type="text"></span>
+                        <span><h4>Placa:</h4>  <input type="text" id="placa"></span>
                         <span> <h4>Tipo:</h4>  <select name="" id="tipoVeiculo">
                             <option value="0">Selecione:</option>
                             <option value="1">Carro</option>
@@ -84,7 +84,7 @@
                           <div class="btncadastra">
                                   
                             <span class="cadastra">
-                                <input id="cadatra" type="button" value="Cadastro">
+                                <input id="cadastra" type="button" value="Cadastro">
                             </span>
                               
                           </div>             
@@ -102,19 +102,19 @@
                             
                                  <h1>Fast parking</h1>
                                  
-                                 <p>Nome: marcelo da silva</p>
+                                 <p>Nome: </p>
                                 
-                                  <p>Placa: htvk-30314</p> 
+                                  <p>Placa: </p> 
                                    
                                   <span>
-                                     <p>Fabricante : Bmw</p>
+                                     <p>Fabricante : </p>
              
                                      
-                                     <p>Tipo: 2B</p>
+                                     <p>Tipo: </p>
                                     
-                                     <p>Modelo: X6 </p> 
+                                     <p>Modelo:  </p> 
              
-                                     <p>Cor : preto</p> 
+                                     <p>Cor : </p> 
              
                                      
                                      
