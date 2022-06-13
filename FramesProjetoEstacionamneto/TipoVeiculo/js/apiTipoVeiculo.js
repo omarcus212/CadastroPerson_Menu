@@ -1,52 +1,35 @@
 
+dados = [{ 
+     id:1,
+     nome:"ferrari"
+}];
 
-const dados =[  
-    {
-        "id":1,
-        "tipo":"Carro"
-     },
-     {
-        "id":2,
-        "tipo":"Moto"
-     },
-     {
-        "id":3,
-        "tipo":"Caminhão"
-     },
-     
-  
-    
-];
-  
+const getlocalstorid = () => JSON.parse(localStorage.getItem('dbtipoVeiculo'))?? []; 
+const setlocalstorid = (dbtipoVeiculo) => localStorage.setItem("dbtipoVeiculo", JSON.stringify(dbtipoVeiculo));
 
 
-const criarTabela = () =>{
-    
-    const tabela = document.getElementById('tblConsulta');
-    tabela.classList.add('#tblConsulta');
-
-    let apoio = `<td class="tblColunas destaque"> <h3>Tipo de veiculo:</h3>  </td>
-    <td class="tblColunas registros"> <h3>Ações</h3> </td>
-     `;
-      
-     
-     dados.map((item)=>{ 
-      apoio += `
-      <tr id="tblLinhas">
-                      <td class="tblColunas destaque"> ${item.tipo}</td>                   
-                          <td class="tblColunas registros">
-                          <img src="img/editar.png"  class="editar">
-                          <img src="img/Vector.png"  class="editar">
-                  
-                  </td>
-                  </tr>
-             
-      `;  
-});
-
-
-  tabela.innerHTML = apoio;
+const creatTipoVeiculos = (tipo) =>{
+const dbTpVeiculo = getlocalstorid();
+dbTpVeiculo.push(tipo);
+setlocalstorid(dbTpVeiculo);
 
 }
 
-criarTabela();
+const readTipo = () =>getlocalstorid();
+
+
+const update = (index,dados) =>{
+   
+   const dbtipo = readTipo();
+   dbtipo[index] = dados;
+    setlocalstorid(dbtipo);
+}
+
+
+const deletar = (index) =>{ 
+   const dbtipo = readTipo();
+   dbtipo.splice(index,1);
+   setlocalstorid(dbtipo); 
+
+}
+

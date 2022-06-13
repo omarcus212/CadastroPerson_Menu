@@ -1,84 +1,132 @@
-'use strict'
+import { fecharModal,abrirModal } from "./Model.js";
 
-import { abrirModal } from "./Model.js";
 
-const alert200 =" foi Adicionado com sucesso"
 
-const dados =[  
-    {
-        "id":1,
-        "cor":"preto"
-     },
-     {
-        "id":2,
-        "cor":"prata"
-     },
-     {
-        "id":3,
-        "cor":"branco"
-     },
-     {
-        "id":4,
-        "cor":"vermelho"
-     },
-     {
-        "id":5,
-        "cor":"azul"
-     }
+const getlocalstorid = () => JSON.parse(localStorage.getItem('db'))?? []; 
+const setlocalstorid = (db_cor) => localStorage.setItem("db", JSON.stringify(db_cor));
+
+
+
+
+
+
+/*creat*/
+const creatCor = (cor) =>{
+ const db_cor = getlocalstorid();
+ db_cor.push(cor);
+ setlocalstorid(db_cor);
+
+
+}
+/*read*/
+const readcor = () =>getlocalstorid();
+
+/*update*/
+const update = (index,dados) => {
+
+    const dbcor = readcor();
+     
+    dbcor[index] = dados;
+
+    setlocalstorid(dbcor);
+
+
+}
+/*deletar*/
+const deletar = (index) =>{
+    const dbcor = readcor();
+     dbcor.splice(index,1);
+     setlocalstorid(dbcor);
+
+     
+}
+
+
+
+
+
+
+/*interação com o USER*/
+const isValidFields = () =>{
+ return document.getElementById('fomrCor').reportValidity();
+}
+
+
+
+const clearFields = () =>{
+ const fildeclean =  document.getElementById('textNome');
+  fildeclean.value = " "; 
+  
+}
+
+
+
+const saveCor = () =>{
+   if(isValidFields()){
+            const cor = {
+                nome:document.getElementById('textNome').value
+            }
+
+            creatCor(cor);
+            updateCor();           
+            fecharModal()
+   }
+
+}
+
+const clearTable = () =>{
+    const cores = document.querySelectorAll('#tblConsulta>tr');
+    cores.forEach(cor =>cor.parentNode.removeChild(cor));
     
-];
+}
 
-
-   
-const criarTabela = async() =>{
-
-const tabela = document.getElementById('tblConsulta');
-tabela.classList.add('#tblConsulta');
-
-let apoio =`<td class="tblColunas destaque"> <h3>Cores</h3>  </td>
-<td class="tblColunas registros"> <h3>Ações</h3> </td>`;
  
-    const thisdados = dados;
-     thisdados.map((item)=>{
-        apoio += `
-        <tr id="tblLinhas">
-                        <td class="tblColunas destaque"> ${item.cor}</td>                   
-                            <td class="tblColunas registros">
-                            <img src="img/editar.png"  class="editar">
-                            <img src="img/Vector.png"  class="excluir">
-                    
-                    </td>
-                    </tr>
-               
-        `;  
-   });
-  
-   tabela.innerHTML = apoio;
 
+const criarTabela = async(corname) =>{
+    const newcor = document.createElement('tr');
+    const tabela = document.getElementById('tblConsulta');
+    tabela.classList.add('#tblConsulta');
+    
+     newcor.innerHTML = 
+   ` 
+     <td class="tblColunas destaque"> ${corname.nome} </td>                   
+     <td class="tblColunas registros">
+     <input id="btn" type="image" src="img/editar.png" class="editar">
+     <input id="btn" type="image" src="img/Vector.png" class="excluir"> 
+    </td>
+     `
+     tabela.appendChild(newcor);
+      
+     
 }
-criarTabela();
+    
+const updateCor = () =>{
+    const dados = readcor();
+    clearTable();
+    dados.forEach(criarTabela);
+ }
+ updateCor();
+    
+/*editar PRT*/
 
-
-
-const enviarDados = () =>{
-   const  x = document.getElementById('textNome').value;
-
-   alert(x + alert200);
-
-    return x;
-
-}
-
-const editarDados = () =>{
-abrirModal();
-
-
-  
-
-
+const editar = (event)=>{
+    console.log(event.target);
 }
 
 
-document.querySelector('.editar').addEventListener('click' , editarDados)
-document.getElementById('add').addEventListener('click', enviarDados);
+
+
+
+
+
+document.getElementById('add').addEventListener('click',saveCor);
+document.querySelector('#btn').addEventListener('click', editar);
+
+
+
+
+
+export{
+    clearFields
+}
 

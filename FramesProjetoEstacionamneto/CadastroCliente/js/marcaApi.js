@@ -1,5 +1,7 @@
 'use strict'
 
+
+
  import {abrirmodal} from "../js/efectmodal.js";
 
 const marca_Carro = async () =>{
@@ -151,6 +153,23 @@ const modelo_Veiculos = async(idMarcaCarro) =>{
  /*informações de dados feitos*/
 
 
+
+
+ /*api*/
+
+
+ const api = async(idMarcaCarro) =>{
+   
+   const url = `https://parallelum.com.br/fipe/api/v1/carros/marcas/${idMarcaCarro}/modelos`;
+    
+    const response = await fetch(url);
+
+    const modelosCarro = await response.json();
+
+     return modelosCarro.modelos;
+
+
+}
 
 document.getElementById('cadastra').addEventListener('click', valuesDados);
 document.getElementById('lista-marca').addEventListener('change', criarlist_Modelo);
