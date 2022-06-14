@@ -45,7 +45,7 @@ const deletar = (index) =>{
 
 const apivagas = async() =>{
  
-   const url = 'http://localhost/php/fastparking/api/veiculo/estacionados';
+   const url = 'http://localhost/Marcus/fastparking/api/veiculo/estacionados';
 
     const option = {
        method:'POST',
