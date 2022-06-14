@@ -10,6 +10,8 @@
     <script src="../menulateral/jsMenueffect/menueffect.js" defer></script>
     <link rel="shortcut icon" href="../menulateral/img/logoFast.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/Modal.css">
+    <script src="JS/Consumo.js" defer></script>
+    <script src="JS/Main.js" defer type="module"></script>
     <title>Cadastramento De Vagas</title>
 </head>
 <body>
@@ -21,6 +23,7 @@
                 <img id="logoFast" src="../menulateral/img/logoFast.png" alt="">
                 <ul>
                     <li>
+                        <a href="../CadastramentoDeVagas/index.html" id="icon" title="Cadastramento de Vagas"><img src="../menulateral/img/seguro-de-automovel.png" alt=""></a>
                         <a href="../CadastroCliente/cadastroCliente.html" title="Cadastramento de Clientes"><img src="../menulateral/img/CadastramentoCliente.png" alt=""></a>
                         <a href="../Cores/Cores.html" title="Cores"><img src="../menulateral/img/cores.png" alt=""></a>
                         <a href="../EstruturaPiso/EstruturaPiso.html" title="Cadastramento de Estrutura"><img src="../menulateral/img/estrutura.png" alt=""></a>
@@ -48,16 +51,16 @@
     <input type="submit" value="Adicionar" id="submit-adicionar">
         
     <div id="divmaeselectds">
-        <select name="" class="selectds">
+        <select name="" class="selectds" id="piso">
             <option value="" selected>PISO:</option>
         </select>
-        <select name="" class="selectds">
+        <select name="" class="selectds" id="setor">
             <option value="" selected>SETOR:</option>
         </select>
-        <select name="" class="selectds">
+        <select name="" class="selectds" id="corredor">
             <option value="" selected>CORREDOR:</option>
         </select>
-        <select name="" class="selectds">
+        <select name="" class="selectds" id="veiculo">
             <option value="" selected>VEICULO:</option>
         </select>
      </div>   
@@ -69,7 +72,9 @@
         <div id="vagas">
             
         <div id="vagasdisponiveis">
-            
+            <div class="disponiveis"></div>
+            <div class="disponiveis"></div>
+            <div class="disponiveis"></div>
         </div>
         <div id="vagasocupadas">
            
@@ -92,8 +97,8 @@
                 <img id="imgfecharmodal" src="FaviconsCadastramento/fechar.png" alt="">
             </div>
             <div id="divmaeselectds-model">
-                <select name="" class="selectdsmodel">
-                    <option value="" selected>PISO:</option>
+                <select id="teste" class="selectdsmodel">
+                    <option >PISO:</option>
                 </select>
                 <select name="" class="selectdsmodel">
                     <option value="" selected>SETOR:</option>

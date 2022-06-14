@@ -19,6 +19,18 @@ main{
 }
 /********/
 
+#menuFte{
+    background-color: #ffffff;
+    width: 60px;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 2px 0px 0px #276695;
+    height: inherit;
+    margin-right: 30px;
+    margin-top: -85px;
+}
 
 #clientePessoa{
     width: 100%;

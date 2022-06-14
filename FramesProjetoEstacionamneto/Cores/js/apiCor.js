@@ -2,6 +2,8 @@ import { fecharModal,abrirModal } from "./Model.js";
 
 
 
+
+
 const getlocalstorid = () => JSON.parse(localStorage.getItem('db'))?? []; 
 const setlocalstorid = (db_cor) => localStorage.setItem("db", JSON.stringify(db_cor));
 
@@ -46,126 +48,123 @@ const deletar = (index) =>{
 
 
 
-/*interação com o USER*/
-const isValidFields = () =>{
- return document.getElementById('fomrCor').reportValidity(); /*vefiricando campo*/
-}
-
-
-
-const clearFields = () =>{
- const fildeclean =  document.getElementById('textNome');
-  fildeclean.value = " "; 
-  
-}
-
-
-
-const saveCor = () =>{
-   if(isValidFields()){
-            const cor = {
-                nome:document.getElementById('textNome').value
-            }
-                
-            const index = document.getElementById('textNome').dataset.index;
-
-            if(index == 'new'){
-                creatCor(cor);
-                updateCores();           
-                fecharModal()
-            }else{
-                update(index,cor);
-                updateCores();
-                fecharModal();
-            }
-          
-   }
-
-}
-
-const clearTable = () =>{
-    const cores = document.querySelectorAll('#tblConsulta>tr');
-    cores.forEach(cor =>cor.parentNode.removeChild(cor));
-    
-}
-
+const buscarcolor = async()=>{
+    const url = `https://testeleonid.herokuapp.com/dadoscor`;
  
+    const option = {
+       method:'POST',
+       body: JSON.stringify(url),
+       headers:{
+         'content-type':'application/json'
+       }
+    }
+ 
+   const repose = await fetch(url);
+   
+   const dados = await repose.json();
 
-const criarTabela = async(corname,index) =>{
-    const newcor = document.createElement('tr');
-    const tabela = document.getElementById('tblConsulta');
-    tabela.classList.add('#tblConsulta');
-    
-     newcor.innerHTML = 
-   ` 
-     <td class="tblColunas destaque"> ${corname.nome} </td>                   
-     <td class="tblColunas registros">
-     <input id="btn" data-action="editar-${index}" type="image" src="img/editar.png" class="editar">
-     <input id="btn" data-action="excluir-${index}" type="image" src="img/Vector.png" class="excluir"> 
-    </td>
-     `
-     tabela.appendChild(newcor);
-      
-     
-}
-    
-const updateCores = () =>{
-    const dados = readcor();
-    clearTable();
-    dados.forEach(criarTabela);
+   return dados;
+ 
     
  }
- updateCores();
+
+ 
+const deletarcolor = async(id)=>{
+  const url = `https://testeleonid.herokuapp.com/dadoscor`;
+
+  const option = {
+     method:'DELETE',
+   
+  }
+
+  const reponse = await fetch(`${url}/${codigoid}`,option);
+
+  
+}
+const url = `https://testeleonid.herokuapp.com/dadoscor`;
+const creatcorlor = async (client) =>{
+  const option ={
+      method : 'POST',
+      body: JSON.stringify(client),
+      headers:{
+          'content-type':'application/json'
+      }
+  }
+
+  const reponse = await fetch(url,option);
+  console.log(reponse.ok);
+}
+
+
+const uptadecor = async(client) => {
+  const option ={
+      method : 'PUT',
+      body: JSON.stringify(client),
+      headers:{
+          'content-type':'application/json'
+      }
+  }
+  const response = await fetch (`${url}/${client.id}`, option);
+  console.log('UPDATE', response.ok);
+
+}
+
+
+
+ const creatcor  = async(item) =>{
+     const a = await buscarcolor();
+    console.log(item);
+    const newcampos = document.createElement('tr');
+    newcampos.innerHTML = `
     
-/*editar PRT*/
-const preenchercor = (cor) =>{
-document.getElementById('textNome').value = cor.nome;
-document.getElementById('textNome').dataset.index = cor.index;
-
-}
-
-
-const editarCor = (index) =>{
-    const cor = readcor()[index];
-    cor.index = index;
-    preenchercor(cor);  
-    abrirModal();
-}
-
-const editarDeletar = (event)=>{
-    if(event.target.type == 'image'){
+    <td id="tblTitulo" >
+    <td class="tblColunas destaque ">${item.nome}</td>
+    <td class="tblColunas destaque img ">
+            <input  type="image" src="img/more.png" id="editar">
+            <input  type="image" src="img/Vector.png" id="excluir">
        
-        const [action, index] = event.target.dataset.action.split('-');
-        if(action == 'editar'){
-            editarCor(index);
-        }else{
-            const acor = readcor()[index];
-            const response = confirm(`Deseja excluir a cor ${acor.nome} ?`);
-             if(response){
-                deletar(index);
-                updateCores(); 
-            }
+ 
+    </td>
+ </td>
+    `;
+      
+    document.getElementById('Consulta').appendChild(newcampos);
+ }
+ 
 
-        }
-        
-    }
+ const updatetabela = async () =>{
+    const dbVagas = await buscarcolor();
+    console.log(dbVagas);
+    dbVagas.forEach(creatcor);
     
 }
-
-
-
-
-
-
-
-document.getElementById('add').addEventListener('click',saveCor);
-document.querySelector('#tblConsulta').addEventListener('click', editarDeletar);
-
-
-
-
-
-export{
-    clearFields
+    
+/*mostra na tela uptade*/
+updatetabela();
+    
+const saveCor = ()=>{
+  const nome = document.getElementById('textNome');
+  creatcorlor(nome);
 }
 
+const editarcor = () =>{
+ abrirModal();
+
+ document.getElementById()
+
+
+}
+
+
+const editarcordelet = (evet) =>{
+   const [action,index] = event.target.id.split('-');
+    if(evet.target.type = 'image'){
+           if(action == 'editar'){
+                 
+           }
+    }
+
+}
+
+document.getElementById('Consulta').addEventListener('click', editarcordelet);
+document.getElementById('add').addEventListener('click', saveCor)

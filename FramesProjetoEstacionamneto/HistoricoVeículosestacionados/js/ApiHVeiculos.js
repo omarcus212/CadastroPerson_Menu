@@ -45,7 +45,7 @@ const deletar = (index) =>{
 
 const apivagas = async() =>{
  
-   const url = 'http://localhost/Marcus/fastparking/api/veiculo/estacionados';
+   const url = 'http://localhost/marcus/fastparking/api/veiculo/estacionados';
 
     const option = {
        method:'POST',
@@ -78,7 +78,7 @@ const createCampos = (item,index) =>{
    <td class="tblColunas destaque vagaCar">${item.entrada.horario}</td>
    <td class="tblColunas destaque img ">
            <input  type="image" src="img/more.png" id="editar-${index}">
-            <input  type="image" src="img/Vector.png" id="delete-${index}">
+      
 
    </td>
 </td>
@@ -114,6 +114,7 @@ const preenchermodal = async(item)=>{
   document.getElementById('entrada').value = hist[item].entrada.horario;
   document.getElementById('modelo').value =hist[item].veiculo.modelo;
   document.getElementById('tipo').value = hist[item].veiculo.tipo;
+  document.getElementById('placa').value = hist[item].veiculo.placa;
   document.getElementById('saida').value = hist[item].saida.horario;
 }
 
@@ -145,6 +146,69 @@ const editarExcluir = (event) =>{
     }
 }
 
+const buscarplaca = async(placa)=>{
+   const url = `http://localhost/marcus/fastparking/api/veiculo/placa/${placa}`;
 
-const a = document.querySelector('#Consulta').addEventListener('click', editarExcluir);
+   const option = {
+      method:'POST',
+      body: JSON.stringify(url),
+      headers:{
+        'content-type':'application/json'
+      }
+   }
 
+  const repose = await fetch(url);
+  
+  const dados = await repose.json();
+   
+   if(repose.ok){
+      dados.forEach(creatPlaca);
+
+   }else{
+      alert('Não existe');
+   }
+   
+}
+
+const creatPlaca = (item) =>{
+   console.log(item);
+   const newcampos = document.createElement('tr');
+   newcampos.innerHTML = `
+   
+   <td id="tblTitulo" >
+   <td class="tblColunas destaque ">${item?.veiculo?.modelo}-${item.veiculo.cor}</td>
+   <td class="tblColunas destaque ">${item?.veiculo?.tipo}</td>
+   <td class="tblColunas destaque " >${item?.veiculo?.placa}</td>
+   <td class="tblColunas destaque ">${item?.vaga?.sigla}</td>
+   <td class="tblColunas destaque vagaCar">${item?.entrada?.horario}</td>
+   <td class="tblColunas destaque img ">
+           <input  type="image" src="img/more.png" id="editar">
+      
+
+   </td>
+</td>
+   `;
+     
+   document.getElementById('Consulta').replaceChildren(newcampos);
+}
+
+const filtraplaca = async(event) =>{
+
+   if(event.key == 'Enter'){
+      const placa = document.getElementById('filtplaca').value;
+      if(placa != ""){
+         buscarplaca(placa);
+      }else{
+         updatetabela();
+      }
+     
+    
+       
+   
+   }
+
+   
+}
+
+document.querySelector('#Consulta').addEventListener('click', editarExcluir);
+document.getElementById('filtplaca').addEventListener('keypress', filtraplaca);

@@ -1,0 +1,67 @@
+.modalpreco{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #C9C9C9;
+    opacity: 0;
+    z-index: -1;
+   
+}
+.modalpreco.active{
+    z-index: 1;
+    opacity: 1;
+    transition: all 1s;
+}
+.todamodel{
+    height: 80%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0px 0px 10px #fff;
+    padding: 24px;
+
+}
+.todamodel form{
+    display: flex;
+    flex-direction: column;
+}
+#fecharpiso {
+    cursor: pointer;
+}
+
+#fecharsetor{
+    cursor: pointer;
+}
+#btnAddPiso{
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    background-color: rgb(255, 255, 255); 
+    border: solid 0.1px rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 80%;
+    left: 29%;
+    cursor: pointer;
+}
+
+#typetexpiso{
+    width: 350px;
+    background-color: #F3F3F3;
+}
+
+
+#selectPiso{
+    width: 350px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    background-color: #F3F3F3;
+}

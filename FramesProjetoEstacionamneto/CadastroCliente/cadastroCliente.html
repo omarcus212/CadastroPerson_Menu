@@ -8,27 +8,28 @@
     <link rel="stylesheet" href="../menulateral/cssMenu/menuLateral.css">
     <link rel="stylesheet" href="cssCadatroCliente/modelEntrada.css">
     <link rel="shortcut icon" href="../menulateral/img/logoFast.png" type="image/x-icon">
-    <script src="js/efectmodal.js" defer type="module"></script>
-    <script src="js/marcaApi.js" defer type="module"></script>
+    <script src="js/efectmodal.js" defer></script>
     
     <title>Cadastramento Cliente</title>
 </head>
 <body>
     <main>
            
-                 <section id="menuFt">
+                 <section id="menuFte">
               <nav>
                   <img id="logoFast" src="../menulateral/img/logoFast.png" alt="">
                   <ul>
                       <li>
-                          <a href="../CadastramentoDeVagas/index.html" id="icon" title="Cadastramento de Vagas"><img src="../menulateral/img/seguro-de-automovel.png" alt=""></a>
-                          <a href="../Cores/Cores.html" title="Cores"><img src="../menulateral/img/cores.png" alt=""></a>
-                          <a href="../EstruturaPiso/EstruturaPiso.html" title="Cadastramento de Estrutura"><img src="../menulateral/img/estrutura.png" alt=""></a>
-                          <a href="../HistoricoVeículosestacionados/historico.html" title="Historico de Veiculos Estacionados"><img src="../menulateral/img/HistoricoVeiculos.png" alt=""></a>
-                          <a href="../Preco/preco.html" title="Cadastramento de preços"><img src="../menulateral/img/CadastramentoPreços.png" alt=""></a>
-                          <a href="../StatusVaga/StatusVaga.html" title="Status Vaga"><img src="../menulateral/img/StatusVaga.png" alt=""></a>
-                          <a href="../TipoVeiculo/TipoVeiculo.html" title="Tipo de Veiculo"><img src="../menulateral/img/TipoVeiculo.png" alt=""></a>
-                          <a href="../Veículosestacionados/VeiculosEstacionados.html" title="Veiculos Estacionados"><img src="../menulateral/img/VeiculosEstacionados.png" alt=""></a> 
+                        <a href="../CadastramentoDeVagas/index.html" id="icon" title="Cadastramento de Vagas"><img src="../menulateral/img/seguro-de-automovel.png" alt=""></a>
+                        <a href="../CadastroCliente/cadastroCliente.html" title="Cadastramento de Clientes"><img src="../menulateral/img/CadastramentoCliente.png" alt=""></a>
+                        <a href="../Cores/Cores.html" title="Cores"><img src="../menulateral/img/cores.png" alt=""></a>
+                        <a href="../EstruturaPiso/EstruturaPiso.html" title="Cadastramento de Estrutura"><img src="../menulateral/img/estrutura.png" alt=""></a>
+                        <a href="../HistoricoVeículosestacionados/historico.html" title="Historico de Veiculos Estacionados"><img src="../menulateral/img/HistoricoVeiculos.png" alt=""></a>
+                        <a href="../Preco/preco.html" title="Cadastramento de preços"><img src="../menulateral/img/CadastramentoPreços.png" alt=""></a>
+                        <a href="../StatusVaga/StatusVaga.html" title="Status Vaga"><img src="../menulateral/img/StatusVaga.png" alt=""></a>
+                        <a href="../TipoVeiculo/TipoVeiculo.html" title="Tipo de Veiculo"><img src="../menulateral/img/TipoVeiculo.png" alt=""></a>
+                        <a href="../Veículosestacionados/VeiculosEstacionados.html" title="Veiculos Estacionados"><img src="../menulateral/img/VeiculosEstacionados.png" id="imgveiculos" alt=""></a>
+                        
                       </li>
                   </ul>
                   <a href="../Loguin/autenticacao.html" title="Sair" ><img src="../menulateral/img/sair.png" alt=""></a>
@@ -44,8 +45,8 @@
                 <form action="inserir" id="dadosCliente">
 
                  <div class="dadosCliente">
-                    <span> <h3>Nome: </h3><input type="text" id="NomeCliente" value="" required ></span>
-                    <span><h3>Telefone:</h3><input type="text" class="tel" id="telefoneCliente" value="" required></span>
+                    <span> <h3>Nome: </h3><input type="text"></span>
+                    <span><h3>Telefone:</h3><input type="text" class="tel"></span>
                  </div>
 
                  <h1>Cadastro Veiculo</h1>
@@ -53,26 +54,15 @@
                  <div class="dadosVeiculo">
 
                      <div class="tpl_modelo">
-                        <span><h4>Placa:</h4>  <input type="text" id="placa"></span>
-                        <span> <h4>Tipo:</h4>  <select name="" id="tipoVeiculo">
-                            <option value="0">Selecione:</option>
-                            <option value="1">Carro</option>
-                            <option value="2">Moto</option>
-                            <option value="3">Caminhao</option>
-                        </select></span>
-                        <span> <h4>Modelo:</h4> <select name="" id="lista-modelos"></select></span>
+                        <span><h4>Placa:</h4>  <input type="text"></span>
+                        <span> <h4>Tipo:</h4>  <select name="" id=""><option value=""></option></select></span>
+                        <span> <h4>Modelo:</h4> <select name="" id=""><option value=""></option></select></span>
                      </div>
                     
 
                     <div class="cor_fabricante"> 
-                        <span> <h4>Cor:</h4>  <select name="" id="CorVeiculo">
-                            <option value="0">Selecione:</option>
-                            <option value="1">Prata</option>
-                            <option value="2">Preto</option>
-                            <option value="3">Branco</option>
-                        </select></span>
-                        <span> <h4>Fabricante: </h4><select name="" id="lista-marca"></select></span>
-                        <span> <h4>Vaga:</h4>  <select name="" id="vagaVeiculo"></select> </span> 
+                        <span> <h4>Cor:</h4>  <select name="" id=""><option value=""></option></select></span>
+                        <span> <h4>Fabricante: </h4><select name="" id=""><option value=""></option></select></span>
                     </div>
                    
                     
@@ -82,7 +72,7 @@
                           <div class="btncadastra">
                                   
                             <span class="cadastra">
-                                <input id="cadastra" type="button" value="Cadastro">
+                                <input id="cadatra" type="button" value="Cadastro">
                             </span>
                               
                           </div>             
@@ -100,19 +90,19 @@
                             
                                  <h1>Fast parking</h1>
                                  
-                                 <p>Nome: </p>
+                                 <p>Nome: marcelo da silva</p>
                                 
-                                  <p>Placa: </p> 
+                                  <p>Placa: htvk-30314</p> 
                                    
                                   <span>
-                                     <p>Fabricante : </p>
+                                     <p>Fabricante : Bmw</p>
              
                                      
-                                     <p>Tipo: </p>
+                                     <p>Tipo: 2B</p>
                                     
-                                     <p>Modelo:  </p> 
+                                     <p>Modelo: X6 </p> 
              
-                                     <p>Cor : </p> 
+                                     <p>Cor : preto</p> 
              
                                      
                                      

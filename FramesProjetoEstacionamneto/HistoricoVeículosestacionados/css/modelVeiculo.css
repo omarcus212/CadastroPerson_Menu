@@ -118,3 +118,32 @@
     width: 90%;
  
 }
+
+@media(max-width:950px){
+   #modal-conteiner{
+       width: 100%;
+       height: 80%;
+       
+   } 
+   #modal-content{
+       width: 130%;
+       display: flex;
+       flex-direction: column;
+       
+   }
+    
+   .containermodel{
+       width: 120%;
+       display: flex;
+       flex-direction: column;
+   }
+   .cliente{
+       display: flex;
+       flex-direction: column;
+   }
+
+   .cliente .inf_span input{
+       width: 20%;
+   }
+
+}
