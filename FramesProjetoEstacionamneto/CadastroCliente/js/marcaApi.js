@@ -157,21 +157,79 @@ const modelo_Veiculos = async(idMarcaCarro) =>{
 
  /*api*/
 
+ const url = 'http://localhost/php/fastparking/api/movimentacao/entrada';
 
- const api = async(idMarcaCarro) =>{
-   
-   const url = `https://parallelum.com.br/fipe/api/v1/carros/marcas/${idMarcaCarro}/modelos`;
-    
-    const response = await fetch(url);
+ const readCliente = async (id='')=>{
+        const response = await fetch(`${url}/${id}`);
+          
+        return await response.json();
+ }
 
-    const modelosCarro = await response.json();
+const creatCliente = async (cliente) =>{
+  const option={
+   method : 'POST',
+   body: JSON.stringify(cliente),
+   headers:{
+       'content-type':'application/json'
+   }
+  }
 
-     return modelosCarro.modelos;
-
+  const response = await fetch(url,option);
+  console.log(response.ok);
 
 }
 
-document.getElementById('cadastra').addEventListener('click', valuesDados);
+
+const deletarCliente = async(id) =>{
+    const option  ={
+      method : 'DELETE'
+    }
+    const response = await fetch(`${url}/${id}`);
+} 
+
+/*na tela*/
+
+const dadosCliente = () =>{
+   const clientes = {
+        
+       "cliente":{
+         nome:document.getElementById('NomeCliente').value,
+         telefone:document.getElementById('telefoneCliente').value,
+       },
+       "veiculo":{
+         placa:document.getElementById('placa').value,
+         tipo:document.getElementById('tipoVeiculo').value,
+         modelo:document.getElementById('lista-modelos').value,
+         cor:document.getElementById('CorVeiculo').value,
+         fabricante:document.getElementById('lista-marca').value,
+         vaga:document.getElementById('vagaVeiculo').value
+       }
+
+   }
+
+   return clientes;
+}
+
+const validado = ()=>{
+   document.getElementById('dadosCliente').reportValidity();
+}
+
+const savecliente = () =>{
+   if(validado()){
+      const dados = dadosCliente();
+     creatCliente(dados);
+      console.log(dados);
+      abrirmodal();
+   }
+   
+
+}
+
+
+
+
+
+document.getElementById('cadastra').addEventListener('click', savecliente);
 document.getElementById('lista-marca').addEventListener('change', criarlist_Modelo);
 
 

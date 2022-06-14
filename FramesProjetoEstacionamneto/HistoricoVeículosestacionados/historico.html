@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../menulateral/cssMenu/menuLateral.css">
     <link rel="stylesheet" href="css/modelVeiculo.css">
     <link rel="shortcut icon" href="../menulateral/img/logoFast.png" type="image/x-icon">
-    <script src="js/modelJS.js" defer></script>
-    <script src="js/ApiHVeiculos.js" defer></script>
+    <script src="js/modelJS.js" defer type="module"></script>
+    <script src="js/ApiHVeiculos.js" defer type="module"></script>
     <title>Historico de Veiculos</title>
 </head>
 <body>
@@ -37,7 +37,7 @@
         <div id="conteudo">
 
             <section class="ttbnt">
-                <div class="title_and_button"><h1>HISTÓRICO Veículos estacionados</h1><span id="add">Adicionar</span></div>
+                <div class="title_and_button"><h1>HISTÓRICO Veículos estacionados</h1></div>
                   <div class="filtro_barra">
 
                        <nav>
@@ -61,70 +61,17 @@
                                 <td class="tblColunas destaque tipocar"> Tipo </td>
                                 <td class="tblColunas destaque placaCar" > Placa </td>
                                 <td class="tblColunas destaque vagaCar"> Vaga </td>
+                                <td class="tblColunas destaque vagaCar"> entrada </td>
                                 <td class="tblColunas destaque acaoC"> Ações</td>
+                                
                             </td>
                         </tr>
-                        <tr id="tblLinhas">
-                            <tr>
-                                <td id="tblTitulo" colspan="6">
-                                    <td class="tblColunas destaque " ></td>
-                                    <td class="tblColunas destaque "></td>
-                                    <td class="tblColunas destaque " ></td>
-                                    <td class="tblColunas destaque "></td>
-                                    <td class="tblColunas destaque img ">
-                                            <img src="img/more.png" alt="">
-                                            <img src="img/Vector.png" alt="">
-
-                                    </td>
-                                </td>
-                            </tr>
-                        </tr>
-                        <tr id="tblLinhas">
-                            <tr>
-                                <td id="tblTitulo" colspan="6">
-                                    <td class="tblColunas destaque " ></td>
-                                    <td class="tblColunas destaque "></td>
-                                    <td class="tblColunas destaque " ></td>
-                                    <td class="tblColunas destaque "></td>
-                                    <td class="tblColunas destaque img ">
-                                            <img src="img/more.png" alt="">
-                                            <img src="img/Vector.png" alt="">
-
-                                    </td>
-                                </td>
-                            </tr>
-                        </tr>
-                        <tr id="tblLinhas">
-                            <tr>
-                                <td id="tblTitulo" colspan="6">
-                                    <td class="tblColunas destaque " ></td>
-                                    <td class="tblColunas destaque "></td>
-                                    <td class="tblColunas destaque " ></td>
-                                    <td class="tblColunas destaque "></td>
-                                    <td class="tblColunas destaque img ">
-                                            <img src="img/more.png" alt="">
-                                            <img src="img/Vector.png" alt="">
-
-                                    </td>
-                                </td>
-                            </tr>
-                        </tr>
-                        <tr id="tblLinhas">
-                            <tr>
-                                <td id="tblTitulo" colspan="6">
-                                    <td class="tblColunas destaque " ></td>
-                                    <td class="tblColunas destaque "></td>
-                                    <td class="tblColunas destaque " ></td>
-                                    <td class="tblColunas destaque "></td>
-                                    <td class="tblColunas destaque img ">
-                                            <img src="img/more.png" alt="">
-                                            <img src="img/Vector.png" alt="">
-
-                                    </td>
-                                </td>
-                            </tr>
-                        </tr>
                     </table>
+
+                        <table id="Consulta">
+
+                        </table>
+                    
                
             </section>
 
@@ -142,11 +89,11 @@
                      <span><h3>Cliente</h3></span>
                          <div class="inputnome">
                              <div class="inf_span"> 
-                                <span>Nome: </span><input type="text" id="boardCar">
+                                <span>Nome: </span><input type="text" id="nome" class="boardCar" readonly>
                              
                              </div>
                              <div class="inf_span"> 
-                                <span>Telefone:</span><input type="text" id="boardCar">
+                                <span>Telefone:</span><input type="text" id="telefone" class="boardCar" readonly>
                              
                              </div>   
                           
@@ -161,15 +108,15 @@
                     <span><h3>Veículo</h3></span>
                         <div class="inputnome">
                             <div class="inf_span"> 
-                               <span>Modelo: </span><input type="text" id="boardCar">
+                               <span>Modelo: </span><input type="text" id="modelo" readonly>
                             
                             </div>
                             <div class="inf_span"> 
-                               <span>Tipo:</span><input type="text" class="inputmenor" id="boardCar">
+                               <span>Tipo:</span><input type="text" class="inputmenor" id="tipo" readonly>
                             
                             </div>   
                             <div class="inf_span"> 
-                                <span>Placa:</span><input type="text"  class="inputmenor"  id="boardCar">
+                                <span>Placa:</span><input type="text"  class="inputmenor"  id="placa" readonly>
                              
                              </div>  
                          
@@ -183,11 +130,11 @@
                <div class="cliente">
                     <div class="inputnome">
                         <div class="inf_span"> 
-                           <span>Entrada:</span><input type="text" id="boardCar">
+                           <span>Entrada:</span><input type="text" id="entrada" readonly>
                         
                         </div>
                         <div class="inf_span"> 
-                           <span>Saída:</span><input type="text" id="boardCar">
+                           <span>Saída:</span><input type="text" id="saida" readonly>
                         </div>   
                     </div>
            </div>
@@ -195,7 +142,7 @@
            <div class="cliente">     
                 <div class="inputnome">
                     <div class="inf_span"> 
-                    <span>Valor pago:</span><input type="text" id="boardCar">
+                    <span>Valor pago:</span><input type="text" id="valor" readonly>
                     </div>   
                 </div>
                 

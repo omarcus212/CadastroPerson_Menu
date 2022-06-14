@@ -1,11 +1,12 @@
+'use strct'
+import { fecharModal,abrirModal } from "./Model.js";
 
-dados = [{ 
-     id:1,
-     nome:"ferrari"
-}];
 
 const getlocalstorid = () => JSON.parse(localStorage.getItem('dbtipoVeiculo'))?? []; 
 const setlocalstorid = (dbtipoVeiculo) => localStorage.setItem("dbtipoVeiculo", JSON.stringify(dbtipoVeiculo));
+
+
+
 
 
 const creatTipoVeiculos = (tipo) =>{
@@ -33,3 +34,29 @@ const deletar = (index) =>{
 
 }
 
+
+/*interação com user*/
+
+/*validando campos */
+const isValid = () =>{
+    return document.getElementById('formTipoV').reportValidity();
+
+}
+
+
+/*limpar campos digitados*/
+const limparCampoModal = () =>{
+    const campoModal = document.getElementById('txtNome');
+    campoModal.value = " ";
+}
+
+
+
+
+
+document.getElementById('add').addEventListener('click',salvaTipo);
+document.querySelector('#tblConsulta').addEventListener('click', editarExcluir);/*pegando info das trs para saber quais conteudos foram clidados (nesse caso so preciso da img = button)*/
+/*exportando as funcaoes para usar em outros lugar do projeto*/
+export{
+  limparCampoModal
+}

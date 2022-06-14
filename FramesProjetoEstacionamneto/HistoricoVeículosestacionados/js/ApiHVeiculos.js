@@ -1,37 +1,150 @@
 'use strict'
 
+import { abrirModal } from "./modelJS.js";
 
-dados = [{ 
-   id:1,
-   nome:"ferrari"
-}];
-
-const getlocalstorid = () => JSON.parse(localStorage.getItem('dbtipoVeiculo'))?? []; 
-const setlocalstorid = (dbhVeiculo) => localStorage.setItem("dbtipoVeiculo", JSON.stringify(dbhVeiculo));
+// const url = 'http://localhost/php/fastparking/api/veiculo/estacionados';
+// const getlocalstorid = async (id="") => {
+  
 
 
-const creatTipoVeiculos = (tipo) =>{
-const dbhVeiculo = getlocalstorid();
-dbhVeiculo.push(tipo);
-setlocalstorid(dbhVeiculo);
+//    const reposes = await fetch(url);
+   
+//    const dados = await reposes.json();
 
-}
+//    return dados;
+// }; 
 
-const readTipo = () =>getlocalstorid();
+// const setlocalstorid = (dbhVeiculo) => localStorage.setItem("dbtipoVeiculo", JSON.stringify(dbhVeiculo));
 
 
-const update = (index,dados) =>{
+// const creatTipoVeiculos = (tipo) =>{
+// const dbhVeiculo = getlocalstorid();
+// dbhVeiculo.push(tipo);
+// setlocalstorid(dbhVeiculo);
+
+// }
+
+// const readhistorico = () =>apivagas();
+
+
+// const update = (index,dados) =>{
  
- const Veiculo = readTipo();
- Veiculo[index] = dados;
-  setlocalstorid(Veiculo);
-}
+//  const Veiculo = readTipo();
+//  Veiculo[index] = dados;
+//   setlocalstorid(Veiculo);
+// }
 
 
 const deletar = (index) =>{ 
- const veiculo = readTipo();
- veiculo.splice(index,1);
- setlocalstorid(veiculo); 
+ const item = apivagas()[index];
+ item.splice(index,1);
+ 
 
 }
+
+
+const apivagas = async() =>{
+ 
+   const url = 'http://localhost/php/fastparking/api/veiculo/estacionados';
+
+    const option = {
+       method:'POST',
+       body: JSON.stringify(url),
+       headers:{
+         'content-type':'application/json'
+       }
+    }
+
+   const repose = await fetch(url);
+   
+   const dados = await repose.json();
+
+   return dados;
+
+
+}
+
+
+/*colocando dados nos campost*/
+const createCampos = (item,index) =>{
+   const newcampos = document.createElement('tr');
+   newcampos.innerHTML = `
+   
+   <td id="tblTitulo" >
+   <td class="tblColunas destaque " >${item.veiculo.modelo}-${item.veiculo.cor}</td>
+   <td class="tblColunas destaque ">${item.veiculo.tipo}</td>
+   <td class="tblColunas destaque " >${item.veiculo.placa}</td>
+   <td class="tblColunas destaque ">${item.vaga.sigla}</td>
+   <td class="tblColunas destaque vagaCar">${item.entrada.horario}</td>
+   <td class="tblColunas destaque img ">
+           <input  type="image" src="img/more.png" id="editar-${index}">
+            <input  type="image" src="img/Vector.png" id="delete-${index}">
+
+   </td>
+</td>
+   `;
+     
+   document.getElementById('Consulta').appendChild(newcampos)
+}
+
+
+/*limpar as tabelas para não se repetirem*/
+const clearTable = () =>{
+   const rows = document.querySelectorAll('#Consulta > tr');
+   rows.forEach(row => row.parentNode.removeChild(row))
+}
+
+
+const updatetabela = async () =>{
+const dbVagas = await apivagas();
+clearTable();
+dbVagas.forEach(createCampos);
+
+}
+
+/*mostra na tela uptade*/
+updatetabela();
+
+
+/*preenchendo a modal*/
+const preenchermodal = async(item)=>{
+   const hist = await apivagas();
+  document.getElementById('nome').value = hist[item].cliente.nome;
+  document.getElementById('telefone').value = hist[item].cliente.telefone;
+  document.getElementById('entrada').value = hist[item].entrada.horario;
+  document.getElementById('modelo').value =hist[item].veiculo.modelo;
+  document.getElementById('tipo').value = hist[item].veiculo.tipo;
+  document.getElementById('saida').value = hist[item].saida.horario;
+}
+
+
+/*trazendo o cliente a modal e editando*/
+const editarH  = (index) =>{
+     preenchermodal(index);
+  
+     abrirModal();
+}
+
+/*verificando onde foi clicado e se é editar ou deletar e atribuindo as funções*/
+const editarExcluir = (event) =>{
+    const type = event.target.type;
+    if(type == 'image'){
+      const [action,index] = event.target.id.split('-');
+      if(action == 'editar'){
+       
+         editarH(index);  
+      }else{
+          const reponde = confirm(`Deseja realmente excluir?`);
+          if(reponde){
+            deletar(index);
+            updatetabela();
+          }
+          
+      }
+        
+    }
+}
+
+
+const a = document.querySelector('#Consulta').addEventListener('click', editarExcluir);
 

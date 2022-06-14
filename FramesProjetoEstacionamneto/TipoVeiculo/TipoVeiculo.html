@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="css/historicoPiso.css">
     <link rel="stylesheet" href="../CadastramentoDeVagas/CSS/Modal.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="Model/modal.css">
-    <script src="Model/Model.js" defer></script>
-    <script src="js/apiTipoVeiculo.js" defer></script>
+    <link rel="stylesheet" href="css/modal.css">
+    <script src="js/Model.js" defer type="module"></script>
+    <script src="js/apiTipoVeiculo.js" defer type="module"></script>
     <link rel="shortcut icon" href="../menulateral/img/logoFast.png" type="image/x-icon">
     <title>Tipo de Veiculo</title>
 </head>
@@ -62,19 +62,19 @@
                     </tr>
                     
                    
-                    <tr id="tblLinhas">
-                        <!-- <td class="tblColunas destaque"> Carro </td>                   
+                    <!-- <tr id="tblLinhas">
+                        < <td class="tblColunas destaque"> Carro </td>                   
                             <td class="tblColunas registros">
                             <img src="img/editar.png"  class="editar">
                             <img src="img/Vector.png"  class="editar">
                     
-                    </td> -->
-                    </tr>
-
+                    </td> 
+                    </tr> -->
+                    <!-- 
                     <tr id="tblLinhas"></tr>
 
                     <tr id="tblLinhas"></tr>
-               
+                -->
                
             </section>
         </div>
@@ -93,10 +93,10 @@
                 </div>
                 
                   <div class="NomeStatus">
-                     <form action="">
+                     <form id="formTipoV">
                         <h2>Nome:</h2>
-                        <input type="text">
-                        <input type="submit" value="Adicionar">
+                        <input type="text"  data-index="new" id="txtNome" required>
+                        <input type="submit" value="Adicionar" id="add">
                      </form>
                   </div>
 

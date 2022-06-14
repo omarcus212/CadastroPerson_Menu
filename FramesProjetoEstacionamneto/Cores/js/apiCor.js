@@ -48,7 +48,7 @@ const deletar = (index) =>{
 
 /*interação com o USER*/
 const isValidFields = () =>{
- return document.getElementById('fomrCor').reportValidity();
+ return document.getElementById('fomrCor').reportValidity(); /*vefiricando campo*/
 }
 
 
@@ -66,10 +66,19 @@ const saveCor = () =>{
             const cor = {
                 nome:document.getElementById('textNome').value
             }
+                
+            const index = document.getElementById('textNome').dataset.index;
 
-            creatCor(cor);
-            updateCor();           
-            fecharModal()
+            if(index == 'new'){
+                creatCor(cor);
+                updateCores();           
+                fecharModal()
+            }else{
+                update(index,cor);
+                updateCores();
+                fecharModal();
+            }
+          
    }
 
 }
@@ -82,7 +91,7 @@ const clearTable = () =>{
 
  
 
-const criarTabela = async(corname) =>{
+const criarTabela = async(corname,index) =>{
     const newcor = document.createElement('tr');
     const tabela = document.getElementById('tblConsulta');
     tabela.classList.add('#tblConsulta');
@@ -91,8 +100,8 @@ const criarTabela = async(corname) =>{
    ` 
      <td class="tblColunas destaque"> ${corname.nome} </td>                   
      <td class="tblColunas registros">
-     <input id="btn" type="image" src="img/editar.png" class="editar">
-     <input id="btn" type="image" src="img/Vector.png" class="excluir"> 
+     <input id="btn" data-action="editar-${index}" type="image" src="img/editar.png" class="editar">
+     <input id="btn" data-action="excluir-${index}" type="image" src="img/Vector.png" class="excluir"> 
     </td>
      `
      tabela.appendChild(newcor);
@@ -100,17 +109,47 @@ const criarTabela = async(corname) =>{
      
 }
     
-const updateCor = () =>{
+const updateCores = () =>{
     const dados = readcor();
     clearTable();
     dados.forEach(criarTabela);
+    
  }
- updateCor();
+ updateCores();
     
 /*editar PRT*/
+const preenchercor = (cor) =>{
+document.getElementById('textNome').value = cor.nome;
+document.getElementById('textNome').dataset.index = cor.index;
 
-const editar = (event)=>{
-    console.log(event.target);
+}
+
+
+const editarCor = (index) =>{
+    const cor = readcor()[index];
+    cor.index = index;
+    preenchercor(cor);  
+    abrirModal();
+}
+
+const editarDeletar = (event)=>{
+    if(event.target.type == 'image'){
+       
+        const [action, index] = event.target.dataset.action.split('-');
+        if(action == 'editar'){
+            editarCor(index);
+        }else{
+            const acor = readcor()[index];
+            const response = confirm(`Deseja excluir a cor ${acor.nome} ?`);
+             if(response){
+                deletar(index);
+                updateCores(); 
+            }
+
+        }
+        
+    }
+    
 }
 
 
@@ -120,7 +159,7 @@ const editar = (event)=>{
 
 
 document.getElementById('add').addEventListener('click',saveCor);
-document.querySelector('#btn').addEventListener('click', editar);
+document.querySelector('#tblConsulta').addEventListener('click', editarDeletar);
 
 
 

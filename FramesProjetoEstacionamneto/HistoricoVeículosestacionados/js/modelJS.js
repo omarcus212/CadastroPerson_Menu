@@ -9,9 +9,8 @@ const fecharModal = () =>{
 }
 
 
-
-document.getElementById('add').addEventListener('click' , abrirModal)
-
 document.getElementById('fechar').addEventListener('click' , fecharModal)
 
-
+export{
+    abrirModal
+}
