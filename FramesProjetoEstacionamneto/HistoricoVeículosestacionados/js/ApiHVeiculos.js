@@ -1,69 +1,14 @@
 'use strict'
 
 import { abrirModal } from "./modelJS.js";
-
-// const url = 'http://localhost/php/fastparking/api/veiculo/estacionados';
-// const getlocalstorid = async (id="") => {
-  
+import { apivagas,buscarplaca } from "./consumoapi.js";
 
 
-//    const reposes = await fetch(url);
-   
-//    const dados = await reposes.json();
-
-//    return dados;
-// }; 
-
-// const setlocalstorid = (dbhVeiculo) => localStorage.setItem("dbtipoVeiculo", JSON.stringify(dbhVeiculo));
-
-
-// const creatTipoVeiculos = (tipo) =>{
-// const dbhVeiculo = getlocalstorid();
-// dbhVeiculo.push(tipo);
-// setlocalstorid(dbhVeiculo);
-
+// const deletar = (index) =>{ 
+//  const item = apivagas()[index];
+//  item.splice(index,1);
+ 
 // }
-
-// const readhistorico = () =>apivagas();
-
-
-// const update = (index,dados) =>{
- 
-//  const Veiculo = readTipo();
-//  Veiculo[index] = dados;
-//   setlocalstorid(Veiculo);
-// }
-
-
-const deletar = (index) =>{ 
- const item = apivagas()[index];
- item.splice(index,1);
- 
-
-}
-
-
-const apivagas = async() =>{
- 
-   const url = 'http://localhost/marcus/fastparking/api/veiculo/estacionados';
-
-    const option = {
-       method:'POST',
-       body: JSON.stringify(url),
-       headers:{
-         'content-type':'application/json'
-       }
-    }
-
-   const repose = await fetch(url);
-   
-   const dados = await repose.json();
-
-   return dados;
-
-
-}
-
 
 /*colocando dados nos campost*/
 const createCampos = (item,index) =>{
@@ -116,6 +61,7 @@ const preenchermodal = async(item)=>{
   document.getElementById('tipo').value = hist[item].veiculo.tipo;
   document.getElementById('placa').value = hist[item].veiculo.placa;
   document.getElementById('saida').value = hist[item].saida.horario;
+  document.getElementById('valor').value = "R$ "+hist[item].valor;
 }
 
 
@@ -132,65 +78,12 @@ const editarExcluir = (event) =>{
     if(type == 'image'){
       const [action,index] = event.target.id.split('-');
       if(action == 'editar'){
-       
          editarH(index);  
-      }else{
-          const reponde = confirm(`Deseja realmente excluir?`);
-          if(reponde){
-            deletar(index);
-            updatetabela();
-          }
-          
       }
         
     }
 }
 
-const buscarplaca = async(placa)=>{
-   const url = `http://localhost/marcus/fastparking/api/veiculo/placa/${placa}`;
-
-   const option = {
-      method:'POST',
-      body: JSON.stringify(url),
-      headers:{
-        'content-type':'application/json'
-      }
-   }
-
-  const repose = await fetch(url);
-  
-  const dados = await repose.json();
-   
-   if(repose.ok){
-      dados.forEach(creatPlaca);
-
-   }else{
-      alert('Não existe');
-   }
-   
-}
-
-const creatPlaca = (item) =>{
-   console.log(item);
-   const newcampos = document.createElement('tr');
-   newcampos.innerHTML = `
-   
-   <td id="tblTitulo" >
-   <td class="tblColunas destaque ">${item?.veiculo?.modelo}-${item.veiculo.cor}</td>
-   <td class="tblColunas destaque ">${item?.veiculo?.tipo}</td>
-   <td class="tblColunas destaque " >${item?.veiculo?.placa}</td>
-   <td class="tblColunas destaque ">${item?.vaga?.sigla}</td>
-   <td class="tblColunas destaque vagaCar">${item?.entrada?.horario}</td>
-   <td class="tblColunas destaque img ">
-           <input  type="image" src="img/more.png" id="editar">
-      
-
-   </td>
-</td>
-   `;
-     
-   document.getElementById('Consulta').replaceChildren(newcampos);
-}
 
 const filtraplaca = async(event) =>{
 
@@ -201,14 +94,17 @@ const filtraplaca = async(event) =>{
       }else{
          updatetabela();
       }
-     
-    
-       
-   
+      
    }
-
    
 }
 
 document.querySelector('#Consulta').addEventListener('click', editarExcluir);
 document.getElementById('filtplaca').addEventListener('keypress', filtraplaca);
+
+
+export{
+   createCampos,
+   clearTable,
+   updatetabela
+}

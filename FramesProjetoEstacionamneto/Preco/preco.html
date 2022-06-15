@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="preco.css">
-    <link rel="stylesheet" href="menuLateral.css">
-    <link rel="stylesheet" href="modelpreco.css">
-    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="css/preco.css">
+    <link rel="stylesheet" href="css/menuLateral.css">
+    <link rel="stylesheet" href="css/modelpreco.css">
+    <script src="js/main.js" defer type="module"></script>
+    <link rel="stylesheet" href="">
     <link rel="shortcut icon" href="../menulateral/img/logoFast.png" type="image/x-icon">
     <title>Valores</title>
 </head>
@@ -24,14 +25,13 @@
             <div class="containermodel">
                 <form id="form">
                 <span>Primeira hora:</span><input type="number" step="0.01" id="primeirahora" data-index="new"  class="boardCar" required>
-                <span>Demais horas: </span><input type="number" step="0.01" id="demaishoras" class="boardCar" required>
+                <span>Demais horas: </span><input type="number" step="0.01" id="demaishoras" class="boardCar" >
                 <span>Tipo do veículo: </span>
                 <select name="" id="typeCar" >
-                    <option>Moto</option>
-                    <option>Van</option>
-                    <option>Mobilete</option>
-                    <option>Carro</option>
-                    <option>Bicicleta</option>
+                    <option value="7">Moto</option>
+                    <option value="10">Van</option>
+                    <option value="11">Lancha</option>
+                    <option value="8">Carro</option>
                 </select>
                 </form> 
                  <span id="btnAdd">Adicionar</span>
