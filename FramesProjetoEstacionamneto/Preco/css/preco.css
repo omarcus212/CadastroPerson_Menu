@@ -84,24 +84,25 @@ margin-bottom: 60px;
 
 
 /*tabela*/
-#tblConsulta{
+#tblConsulta , #Consulta{
     width: 100%;
     min-height: 30px;
     height: auto;
 }
 
-#Consulta{
-    width: 100%;
-    min-height: 30px;
-    height: auto;
-    gap: 10px;
-}
 
 #tblLinhas{
     width: 100%;
     height: 50px;
     border: solid 1px black;
 }
+
+#tblConsulta tr {
+    width: 100%;
+    height: 50px;
+    border: solid 1px black;
+}
+
 .tblColunas{
     width: 10%;
     height: 30px;

@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/historicoPiso.css">
-    <link rel="stylesheet" href="../CadastramentoDeVagas/CSS/Modal.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="shortcut icon" href="../menulateral/img/logoFast.png" type="image/x-icon">
     <script src="js/apiCor.js" defer type="module"></script>
     <script src="js/Model.js" defer type="module"></script>
+    <script src="js/main.js" defer type="module"></script>
     <title>Cores</title>
 </head>
 <body>
@@ -27,10 +27,10 @@
                         <a href="../EstruturaPiso/EstruturaPiso.html" title="Cadastramento de Estrutura"><img src="../menulateral/img/estrutura.png" alt=""></a>
                         <a href="../HistoricoVeículosestacionados/historico.html" title="Historico de Veiculos Estacionados"><img src="../menulateral/img/HistoricoVeiculos.png" alt=""></a>
                         <a href="../Preco/preco.html" title="Cadastramento de preços"><img src="../menulateral/img/CadastramentoPreços.png" alt=""></a>
-                        <a href="../StatusVaga/StatusVaga.html" title="Status Vaga"><img src="../menulateral/img/StatusVaga.png" alt=""></a>
+                        <a href="../relatorio/index.html" title="Relatório"><img src="../menulateral/img/StatusVaga.png" alt=""></a>
                         <a href="../TipoVeiculo/TipoVeiculo.html" title="Tipo de Veiculo"><img src="../menulateral/img/TipoVeiculo.png" alt=""></a>
                         <a href="../Veículosestacionados/VeiculosEstacionados.html" title="Veiculos Estacionados"><img src="../menulateral/img/VeiculosEstacionados.png" id="imgveiculos" alt=""></a>
-                         
+                        
                     </li>
                 </ul>
                 <a href="../Loguin/autenticacao.html" title="Sair" ><img src="../menulateral/img/sair.png" alt=""></a>
@@ -56,20 +56,19 @@
 
               <section id="tableCrud_veiculo">
                
-                <table id="tblConsulta">
+                <table id="Consulta">
                     <tr>
                         <td id="tblTitulo" colspan="6">
-                            <td class="tblColunas destaque corModelo" > Cor </td>
-                            <td class="tblColunas destaque acaoC"> Ações</td>
-                            
+                            <td class="tblColunas destaque " > Cor </td>
+                            <td class="tblColunas destaque acao"> <h3>Ações</h3> </td>
                         </td>
-                    </tr>
+                    </tr>       
                 </table>
 
-                    <table id="Consulta">
+                <table id="Consulta">
 
-                    </table>
-                
+                </table>
+
            
         </section>
 
@@ -77,7 +76,7 @@
 
         <div class="modal-conteiner" id="modal-conteiner">
 
-            <div class="conteudotodo">
+            <div class="conteudotodo" id="conteudotodo">
                     
                    <div class="topModal">
                        <div>
@@ -89,14 +88,15 @@
                 </div>
                 
                   <div class="NomeStatus">
-                     <form id="fomrCor">
+                     <form id="formCor">
                         <h2>Nome:</h2>
-                        <input type="text" data-index="new" id="textNome" required>
+                        <input type="text" class="textNome" data-index="new" id="textNome" required>
                         <input type="button" id="add" value="Adicionar" >
                      </form>
                   </div>
 
             </div>
+            
         </div>
 
 

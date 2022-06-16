@@ -7,9 +7,7 @@ box-sizing:border-box ;
 margin: 0;
 }
 
-main{
-    display: flex;
-}
+
 #conteudo{
     width: 100vw;
     height: 100vh;
@@ -19,18 +17,6 @@ main{
 }
 /********/
 
-#menuFte{
-    background-color: #ffffff;
-    width: 60px;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    box-shadow: 2px 0px 0px #276695;
-    height: inherit;
-    margin-right: 30px;
-    margin-top: -85px;
-}
 
 #clientePessoa{
     width: 100%;
@@ -166,3 +152,57 @@ main{
      cursor: pointer;
      color: #ffffff;
  }
+
+
+
+ @media (max-width:900px) {
+
+     #dadosCliente{
+        display: flex;
+        flex-direction: column;
+        transition: 0.50s;
+        
+     }
+
+     h1{
+        font-size: 0.8rem;
+     }
+
+     .dadosVeiculo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+     }
+
+     .cor_fabricante{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 5px;
+        
+     }
+
+    .tpl_modelo{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-left: 25px;
+        gap: 5px;
+    }
+
+        
+    .tpl_modelo h4{
+        margin-right: 40px;
+    }
+
+    .tpl_modelo input select{
+        width: 50%;
+    }
+
+        h4{
+            text-align: end;
+            font-size: 0.3rem;
+        
+     }
+ } 

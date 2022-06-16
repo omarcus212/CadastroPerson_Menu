@@ -2,7 +2,7 @@ import{clearTable, createCampos} from "./ApiHVeiculos.js";
 
 const apivagas = async() =>{
  
-    const url = 'http://localhost/marcus/fastparking/api/veiculo';
+    const url = 'http://localhost/php/fastparking/api/veiculo';
  
 
     const repose = await fetch(url);
@@ -15,7 +15,7 @@ const apivagas = async() =>{
  }
  
  const buscarplaca = async(placa)=>{
-    const url = `http://localhost/marcus/fastparking/api/veiculo/placa/${placa}`;
+    const url = `http://localhost/php/fastparking/api/veiculo/placa/${placa}`;
  
    const repose = await fetch(url);
         
@@ -33,6 +33,10 @@ const apivagas = async() =>{
  }
 
 
+
+
+
+ 
 
  export{
     apivagas,

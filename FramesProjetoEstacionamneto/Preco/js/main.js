@@ -35,7 +35,7 @@ const createCampos = (preco, index) => {
 }
 
 
-//trzaendo os dados api
+//trazaendo os dados api
 const updateTable = async () => {
     const dbveiculos = await getHistoricoDeVeiculos();
     dbveiculos.forEach(createCampos);

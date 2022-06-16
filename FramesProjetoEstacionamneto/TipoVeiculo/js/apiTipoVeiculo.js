@@ -1,62 +1,63 @@
 'use strct'
-import { fecharModal,abrirModal } from "./Model.js";
 
+const url = `http://localhost/php/fastparking/api/tipo`;
 
-const getlocalstorid = () => JSON.parse(localStorage.getItem('dbtipoVeiculo'))?? []; 
-const setlocalstorid = (dbtipoVeiculo) => localStorage.setItem("dbtipoVeiculo", JSON.stringify(dbtipoVeiculo));
-
-
-
-
-
-const creatTipoVeiculos = (tipo) =>{
-const dbTpVeiculo = getlocalstorid();
-dbTpVeiculo.push(tipo);
-setlocalstorid(dbTpVeiculo);
+const apiTipoVeiculo = async () =>{
+    const response = await fetch(url);
+    const dados = await response.json();
+    return dados;
 
 }
 
-const readTipo = () =>getlocalstorid();
+const salvarNovoTpo = async(tipo) =>{
 
+    const option ={
+        method : 'POST',
+        body: JSON.stringify(tipo),
+        headers:{
+            'content-type':'application/json'
+        }
+    }
 
-const update = (index,dados) =>{
-   
-   const dbtipo = readTipo();
-   dbtipo[index] = dados;
-    setlocalstorid(dbtipo);
+    const reponse = await fetch(url,option);
+     
+    if(reponse.ok){
+      alert("Registro inserido com sucesso.");
+    }else{
+        alert("Erro ao Registrar")
+    }
+     
+    return reponse;
 }
 
 
-const deletar = (index) =>{ 
-   const dbtipo = readTipo();
-   dbtipo.splice(index,1);
-   setlocalstorid(dbtipo); 
+const atualizandoNvoTipo = async (dados) =>{
+  const nome = {nome :dados.nome}
+   const id = dados.id;
+    const option ={
+        method : 'PUT',
+        body: JSON.stringify(nome),
+        headers:{
+            'content-type':'application/json'
+        }
+    }
+
+    const reponse = await fetch(`${url}/${id}`,option);
+     
+    if(reponse.ok){
+      alert("Registro Atualizado com sucesso.");
+    }else{
+        alert("Erro ao Registrar")
+    }
+     
+    return reponse;
 
 }
 
 
-/*interação com user*/
 
-/*validando campos */
-const isValid = () =>{
-    return document.getElementById('formTipoV').reportValidity();
-
-}
-
-
-/*limpar campos digitados*/
-const limparCampoModal = () =>{
-    const campoModal = document.getElementById('txtNome');
-    campoModal.value = " ";
-}
-
-
-
-
-
-document.getElementById('add').addEventListener('click',salvaTipo);
-document.querySelector('#tblConsulta').addEventListener('click', editarExcluir);/*pegando info das trs para saber quais conteudos foram clidados (nesse caso so preciso da img = button)*/
-/*exportando as funcaoes para usar em outros lugar do projeto*/
 export{
-  limparCampoModal
+    apiTipoVeiculo,
+    salvarNovoTpo,
+    atualizandoNvoTipo
 }

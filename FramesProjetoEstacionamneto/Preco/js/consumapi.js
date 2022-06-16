@@ -1,5 +1,5 @@
 
-const url = 'http://localhost/marcus/fastparking/api/preco'
+const url = 'http://localhost/php/fastparking/api/preco'
 const getHistoricoDeVeiculos = async () => {
 
     const resposta = await fetch(url)

@@ -99,6 +99,7 @@ const filtraplaca = async(event) =>{
    
 }
 
+
 document.querySelector('#Consulta').addEventListener('click', editarExcluir);
 document.getElementById('filtplaca').addEventListener('keypress', filtraplaca);
 

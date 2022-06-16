@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/historicoPiso.css">
-    <link rel="stylesheet" href="../CadastramentoDeVagas/CSS/Modal.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal.css">
     <script src="js/Model.js" defer type="module"></script>
     <script src="js/apiTipoVeiculo.js" defer type="module"></script>
+    <script src="js/app.js" defer type="module"></script>
     <link rel="shortcut icon" href="../menulateral/img/logoFast.png" type="image/x-icon">
     <title>Tipo de Veiculo</title>
 </head>
@@ -27,7 +27,7 @@
                         <a href="../EstruturaPiso/EstruturaPiso.html" title="Cadastramento de Estrutura"><img src="../menulateral/img/estrutura.png" alt=""></a>
                         <a href="../HistoricoVeículosestacionados/historico.html" title="Historico de Veiculos Estacionados"><img src="../menulateral/img/HistoricoVeiculos.png" alt=""></a>
                         <a href="../Preco/preco.html" title="Cadastramento de preços"><img src="../menulateral/img/CadastramentoPreços.png" alt=""></a>
-                        <a href="../StatusVaga/StatusVaga.html" title="Status Vaga"><img src="../menulateral/img/StatusVaga.png" alt=""></a>
+                        <a href="../relatorio/index.html" title="Relatório"><img src="../menulateral/img/StatusVaga.png" alt=""></a>
                         <a href="../TipoVeiculo/TipoVeiculo.html" title="Tipo de Veiculo"><img src="../menulateral/img/TipoVeiculo.png" alt=""></a>
                         <a href="../Veículosestacionados/VeiculosEstacionados.html" title="Veiculos Estacionados"><img src="../menulateral/img/VeiculosEstacionados.png" id="imgveiculos" alt=""></a>
                         
@@ -56,34 +56,25 @@
 
             <section class="ttbnt">
              
-                <table id="tblConsulta">
+                <table id="Consulta">
         
                     <tr id="tblLinhas">
                         <td class="tblColunas destaque"> <h3>Tipo de veiculo:</h3>  </td>
-                        <td class="tblColunas registros"> <h3>Ações</h3> </td>
+                        <td class="tblColunas registros acao"> <h3>Ações</h3> </td>
                     </tr>
-                    
-                   
-                    <!-- <tr id="tblLinhas">
-                        < <td class="tblColunas destaque"> Carro </td>                   
-                            <td class="tblColunas registros">
-                            <img src="img/editar.png"  class="editar">
-                            <img src="img/Vector.png"  class="editar">
-                    
-                    </td> 
-                    </tr> -->
-                    <!-- 
-                    <tr id="tblLinhas"></tr>
+                     </table>
 
-                    <tr id="tblLinhas"></tr>
-                -->
-               
+                     <table id="Consulta">
+
+                    </table>
+                   
+            
             </section>
         </div>
 
         <div class="modal-conteiner" id="modal-conteiner">
 
-            <div class="conteudotodo">
+            <div class="conteudotodo" id="conteudotodo">
                     
                    <div class="topModal">
                        <div>
@@ -97,8 +88,8 @@
                   <div class="NomeStatus">
                      <form id="formTipoV">
                         <h2>Nome:</h2>
-                        <input type="text"  data-index="new" id="txtNome" required>
-                        <input type="submit" value="Adicionar" id="add">
+                        <input type="text"  data-index="new" id="txtNome" class="txtNome" required>
+                        <input type="button" value="Adicionar" id="addd">
                      </form>
                   </div>
 
